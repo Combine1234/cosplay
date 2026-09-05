@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Closet — Pre-loved, considered.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="wordmark" href="#discover">CLOSET<span>®</span></a>
+      <nav><a class="active" href="#discover">Discover</a><a href="#how">How it works</a><a href="#about">Our edit</a></nav>
+      <div class="nav-actions"><button class="icon-btn" id="noticeButton" aria-label="การแจ้งเตือน">◌<i></i></button><button class="profile-chip" id="closetButton"><span>AT</span> My Closet</button><button class="sell-button" id="openListing">＋ ลงขาย</button></div>
+    </header>
+
+    <main id="discover">
+      <section class="hero">
+        <div class="hero-copy"><p class="eyebrow">THE CONSIDERED SECOND LIFE</p><h1>Pieces worth<br><em>wearing again.</em></h1><p>พื้นที่สำหรับเสื้อผ้าที่มีเรื่องราว — คัดสรรอย่างตั้งใจ ส่งต่ออย่างมั่นใจ</p><a class="dark-cta" href="#shop">เลือกดูสินค้า <b>→</b></a></div>
+        <div class="hero-image"><img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=85" alt="แฟชั่นเสื้อผ้ามือสอง" /><div class="hero-note"><span>01</span><p>Pre-loved<br>in perfect form</p></div></div>
+      </section>
+
+      <section class="trust-strip"><div><b>✦ Verified sellers</b><span>ยืนยันตัวตนก่อนรับเงิน</span></div><div><b>◇ Measured with care</b><span>วัดขนาดจริงทุกชิ้น</span></div><div><b>↗ Protected checkout</b><span>ติดตามสถานะได้ทุกขั้นตอน</span></div><div><b>◎ Thoughtful trade</b><span>ต่อรองได้อย่างโปร่งใส</span></div></section>
+
+      <section class="shop" id="shop">
+        <div class="section-heading"><div><p class="eyebrow">JUST IN</p><h2>Discover the edit.</h2></div><button class="text-button" id="savedSearch">♡ บันทึกการค้นหานี้</button></div>
+        <div class="toolbar"><label class="search"><span>⌕</span><input id="searchInput" placeholder="ค้นหาจากแบรนด์ สี หรือไอเทม" /></label><div class="filters"><button class="filter active" data-filter="all">ทั้งหมด</button><button class="filter" data-filter="shirt">เสื้อ</button><button class="filter" data-filter="dress">เดรส</button><button class="filter" data-filter="outerwear">Outerwear</button><button class="filter" id="filterMore">ตัวกรอง ⌄</button></div><button class="sort">ใหม่ล่าสุด ↕</button></div>
+        <div class="products" id="productGrid"></div>
+      </section>
+
+      <section class="sell-banner" id="how"><div><p class="eyebrow">YOUR WARDROBE, CIRCULATED</p><h2>พร้อมส่งต่อ<br><em>ชิ้นโปรดของคุณ?</em></h2><p>ถ่ายรูปไม่กี่รูป ให้ AI ช่วยร่างข้อมูล<br>แล้วคุณค่อยตรวจและกำหนดราคาด้วยตัวเอง</p><button class="light-cta" id="openListing2">เริ่มลงขาย <b>→</b></button></div><div class="banner-steps"><div><span>01</span><b>ถ่ายรูป</b><p>แสดงสภาพจริงและตำหนิ</p></div><div><span>02</span><b>ตรวจข้อมูล</b><p>แก้ไขรายละเอียดที่ AI ร่าง</p></div><div><span>03</span><b>ส่งต่อ</b><p>รับข้อเสนอหรือขายทันที</p></div></div></section>
+    </main>
+
+    <footer><a class="wordmark" href="#discover">CLOSET<span>®</span></a><p>Pre-loved, considered. © 2026</p><p>ไม่ใช่แพลตฟอร์มชำระเงินจริง · Prototype</p></footer>
+
+    <div class="overlay hidden" id="overlay"></div>
+    <aside class="panel hidden" id="listingPanel"><div class="panel-head"><div><p class="eyebrow">QUICK LISTING</p><h2>ลงขายชิ้นใหม่</h2></div><button class="close">×</button></div><div class="listing-progress"><span class="done">1</span><i></i><span>2</span><i></i><span>3</span><small>รูปสินค้า　 รายละเอียด　 ตรวจทาน</small></div><div class="upload-box"><div class="upload-image">＋<span>เพิ่มรูปสินค้า</span></div><div><b>เริ่มจากรูปสินค้าของคุณ</b><p>ใช้รูปจริงที่ถ่ายเองอย่างน้อย 3 รูป<br>รวมถึงป้ายและจุดตำหนิถ้ามี</p><button class="outline" id="aiFill">✦ ให้ AI ช่วยร่างข้อมูล</button></div></div><form class="listing-form"><label>ชื่อสินค้า<input id="titleField" placeholder="เช่น Linen shirt, ivory" /></label><div class="two"><label>แบรนด์<input id="brandField" placeholder="ไม่ระบุ" /></label><label>สภาพ<select id="conditionField"><option>เลือกสภาพ</option><option>เหมือนใหม่</option><option>สภาพดีมาก</option><option>มีตำหนิเล็กน้อย</option></select></label></div><p class="form-label">ขนาดที่วัดจริง <span>จำเป็น</span></p><div class="three"><label>อก<input placeholder="cm" /></label><label>เอว<input placeholder="cm" /></label><label>ยาว<input placeholder="cm" /></label></div><label>ตำหนิ / รายละเอียด<input placeholder="ระบุให้ชัดเจนเพื่อความน่าเชื่อถือ" /></label><div class="price-advice" id="priceAdvice"><span>✦</span><div><b>คำแนะนำราคา</b><p>เพิ่มรูปเพื่อรับช่วงราคาและเหตุผล</p></div></div><button type="button" class="dark-cta full" id="reviewListing">ตรวจทานก่อนเผยแพร่ <b>→</b></button></form></aside>
+
+    <section class="modal hidden" id="productModal"><button class="close modal-close">×</button><div class="detail-grid"><div class="detail-photo"><img id="detailImage" alt="รูปสินค้า" /><span class="photo-count">1 / 5</span></div><div class="detail-copy"><p class="eyebrow" id="detailBrand"></p><h2 id="detailName"></h2><p class="detail-price" id="detailPrice"></p><div class="seller-row"><span class="avatar">MS</span><div><b>Mali Studio <em>✓</em></b><p>Verified seller · ตอบกลับภายใน 1 ชม.</p></div><button class="heart" id="favoriteButton">♡</button></div><div class="condition-card"><div><small>สภาพ</small><b id="detailCondition"></b></div><div><small>ไซซ์จากป้าย</small><b>Free size</b></div><div><small>วัดจริง</small><b>อก 102 · ยาว 68 cm</b></div></div><p class="description">ลินินเนื้อบางเบา ทรง relaxed เหมาะกับอากาศร้อน มีรายละเอียดกระดุมเปลือกหอย สภาพสวย ไม่มีตำหนิ</p><div class="detail-actions"><button class="buy-now" id="buyButton">ซื้อเลย</button><button class="offer-btn" id="offerButton">เสนอราคา</button></div><button class="tryon" id="tryonButton">♧ ลองใส่กับหุ่นจำลอง <span>→</span></button><p class="protection">◌ ชำระเงินและจัดส่งผ่านระบบเพื่อคุ้มครองทั้งสองฝ่าย</p></div></div></section>
+
+    <section class="modal small hidden" id="offerModal"><button class="close modal-close">×</button><p class="eyebrow">MAKE AN OFFER</p><h2>เสนอราคาอย่างสุภาพ</h2><p>คำเสนอจะหมดอายุใน 24 ชั่วโมง และสินค้าจะยังวางขายจนกว่าผู้ขายตอบรับ</p><label class="offer-input">฿<input id="offerInput" value="690" inputmode="numeric" /></label><div class="suggestion">✦ ราคาแนะนำ ฿700–฿740 <small>อิงจากสภาพและราคาลงขายที่คล้ายกัน</small></div><button class="dark-cta full" id="sendOffer">ส่งข้อเสนอ</button></section>
+
+    <section class="modal tryon-modal hidden" id="tryonModal"><button class="close modal-close">×</button><div class="tryon-copy"><p class="eyebrow">VIRTUAL TRY-ON</p><h2>ลองดูทรง<br><em>ก่อนตัดสินใจ</em></h2><p>เลือกหุ่นจำลองใกล้เคียงกับคุณเพื่อดูสัดส่วนโดยประมาณ</p><div class="body-options"><button class="body active" data-body="petite">Petite<br><small>155 cm</small></button><button class="body" data-body="regular">Regular<br><small>165 cm</small></button><button class="body" data-body="tall">Tall<br><small>175 cm</small></button></div><div class="fit-tip"><span>✦</span><p><b>คำแนะนำเบื้องต้น</b><br>ทรง relaxed, ไหล่ตกเล็กน้อย และความยาวคลุมสะโพก</p></div><button class="buy-now full" id="tryonBuy">ซื้อสินค้านี้</button><button class="back-detail" id="backDetail">← กลับไปดูรายละเอียด</button><small class="disclaimer">ภาพจำลองเพื่อช่วยตัดสินใจเท่านั้น ไม่รับประกันความพอดีกับร่างกายจริง</small></div><div class="mannequin"><div class="measure-label chest">อก 84 cm</div><div class="shirt-on-mannequin"></div><div class="head"></div><div class="neck"></div><div class="body-shape"></div><div class="legs"></div></div></section>
+
+    <section class="modal closet-modal hidden" id="closetModal"><button class="close modal-close">×</button><div class="closet-head"><div class="avatar large">AT</div><div><p class="eyebrow">MY CLOSET</p><h2>Attitaya's closet <em>✓</em></h2><p>Phone verified · 3 รายการขายสำเร็จ</p></div><button class="outline">ยืนยันบัญชีรับเงิน</button></div><div class="closet-tabs"><button class="active">กำลังขาย <b>2</b></button><button>การซื้อ <b>1</b></button><button>บันทึกไว้ <b>4</b></button><button>ข้อเสนอ <b>1</b></button></div><div class="order-card"><div><span class="order-state shipping">กำลังจัดส่ง</span><h3>Order #CL-2408</h3><p>Ribbed cotton cardigan · ผู้ขายจัดส่งแล้ว</p></div><button class="outline">ติดตามพัสดุ</button></div><div class="payout-card"><div><span>รายได้พร้อมถอน</span><b>฿1,280</b><small>ยืนยันบัญชีรับเงินเพื่อถอนยอด</small></div><button class="dark-cta">ยืนยันตัวตน</button></div><p class="audit">◷ บันทึกกิจกรรมล่าสุด · คุณบันทึกสินค้า “Linen shirt” ไว้เมื่อครู่</p></section>
+
+    <div class="toast hidden" id="toast"></div><script src="app.js"></script>
+  </body>
+</html>
