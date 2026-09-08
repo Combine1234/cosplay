@@ -2,6 +2,7 @@ const fail = message => { throw new Error(message); };
 const uid = (prefix,now) => `${prefix}-${now.toString(36)}-${Math.random().toString(36).slice(2,10)}`;
 const text = value => typeof value === 'string' && value.trim().length > 0;
 const source = value => (typeof Blob !== 'undefined' && value instanceof Blob && ['image/png','image/jpeg','image/webp'].includes(value.type) && value.size > 0 && value.size <= 10*1024*1024) || (typeof value === 'string' && /^\.?\/?cosplay-assets\/[a-z0-9-]+\.svg$/.test(value));
+const layerSource = value => (typeof Blob !== 'undefined' && value instanceof Blob && value.type === 'image/png' && value.size > 0 && value.size <= 10*1024*1024) || (typeof value === 'string' && /^\.?\/?cosplay-assets\/[a-z0-9-]+\.svg$/.test(value));
 const unique = rows => rows.every(row=>text(row.id)) && new Set(rows.map(row=>row.id)).size === rows.length;
 export function validateCosplayListing(item) {
   const errors=[]; if(!item || typeof item !== 'object') return ['ข้อมูลสินค้าไม่ถูกต้อง'];
@@ -22,7 +23,7 @@ export function validateCosplayListing(item) {
     if(['shoulder','chest','waist','hip','length'].some(k=>!Number.isFinite(v.measurements?.[k])||v.measurements[k]<10||v.measurements[k]>250)) errors.push('กรอกขนาดชุดเป็นเซนติเมตรให้ครบ');
   }
   const layers=Array.isArray(item.costumeLayers)?item.costumeLayers:[];
-  if(!unique(layers)||layers.some(l=>!['wig','base','outer','shoes','accessory'].includes(l.slot)||!source(l.src)||!Number.isFinite(l.x)||Math.abs(l.x)>400||!Number.isFinite(l.y)||Math.abs(l.y)>600||!Number.isFinite(l.scale)||l.scale<0.1||l.scale>3)) errors.push('เลเยอร์ชุดไม่ถูกต้อง');
+  if(!unique(layers)||layers.some(l=>!['wig','base','outer','shoes','accessory'].includes(l.slot)||!layerSource(l.src)||!Number.isFinite(l.x)||Math.abs(l.x)>400||!Number.isFinite(l.y)||Math.abs(l.y)>600||!Number.isFinite(l.scale)||l.scale<0.1||l.scale>3)) errors.push('เลเยอร์ชุดไม่ถูกต้อง');
   return [...new Set(errors)];
 }
 export const validateListing=validateCosplayListing;

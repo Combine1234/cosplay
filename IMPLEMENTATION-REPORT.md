@@ -34,13 +34,14 @@ SVG เหมาะกับต้นแบบนี้เพราะ path แ�
 
 ## หลักฐานการตรวจ
 
-- `npm test`: 39/39 ผ่าน
+- `npm test`: 40/40 ผ่าน
 - JavaScript syntax: `app.js`, `repository.js`, `cosplay-domain.js`, `cosplay-seller.js`, `mannequin.js` ผ่าน
 - Browser desktop 1440×1000 และ mobile 390×844: ไม่มี console/page error และไม่มี horizontal overflow
 - Buyer flow ผ่าน: ค้นหา → รายละเอียด → Try On → แก้สัดส่วน → Save → Buy Now → Order Confirmed → Purchases → reload
 - Seller flow ผ่าน: สลับบัญชี → ลงประกาศหลายไซซ์ → อัปโหลดภาพ → ตั้งราคา → Publish → Marketplace → fallback ไม่มีภาพซ้อน
 - Seller accounting ผ่าน: คำสั่งซื้อปรากฏใน Sold และยอด Earnings ตรงกับ snapshot
 - Browser concurrency ผ่าน: เปิดสองแท็บยืนยันซื้อ variant เดียวกันพร้อมกัน ระบบสร้างคำสั่งซื้อได้หนึ่งรายการและตัดสต็อกครั้งเดียว
+- ประกาศที่พักขายเปิดจากลิงก์ตรงได้เพื่อดูข้อมูล แต่ปุ่ม Buy Now ถูกปิดทั้งหน้ารายละเอียดและห้องลอง
 
 ## ข้อจำกัดที่ยังต้องมี backend ก่อนใช้งานจริง
 
