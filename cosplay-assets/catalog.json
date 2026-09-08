@@ -1,0 +1,86 @@
+[
+  {
+    "id": "luna",
+    "character": "Luna Astralis",
+    "series": "Moonlit Archive",
+    "kind": "gown",
+    "defect": false
+  },
+  {
+    "id": "ember",
+    "character": "Ember Vale",
+    "series": "Crimson Guild",
+    "kind": "coat",
+    "defect": false
+  },
+  {
+    "id": "flora",
+    "character": "Flora Sylven",
+    "series": "Verdant Court",
+    "kind": "gown",
+    "defect": true
+  },
+  {
+    "id": "celeste",
+    "character": "Celeste Aria",
+    "series": "Starfall Academy",
+    "kind": "uniform",
+    "defect": false
+  },
+  {
+    "id": "raven",
+    "character": "Raven Noctis",
+    "series": "Midnight Masquerade",
+    "kind": "gown",
+    "defect": false
+  },
+  {
+    "id": "aurora",
+    "character": "Aurora Frost",
+    "series": "Crystal Dominion",
+    "kind": "gown",
+    "defect": false
+  },
+  {
+    "id": "scarlet",
+    "character": "Scarlet Finch",
+    "series": "Skybound Corsairs",
+    "kind": "coat",
+    "defect": false
+  },
+  {
+    "id": "mika",
+    "character": "Mika Hanami",
+    "series": "Sakura Reverie",
+    "kind": "robe",
+    "defect": true
+  },
+  {
+    "id": "sol",
+    "character": "Sol Aurelius",
+    "series": "Sunforge Order",
+    "kind": "armor",
+    "defect": false
+  },
+  {
+    "id": "iris",
+    "character": "Iris Spellweaver",
+    "series": "Violet Atelier",
+    "kind": "robe",
+    "defect": false
+  },
+  {
+    "id": "aqua",
+    "character": "Aqua Marina",
+    "series": "Pearl Odyssey",
+    "kind": "uniform",
+    "defect": false
+  },
+  {
+    "id": "nova",
+    "character": "Nova Flux",
+    "series": "Neon Horizon",
+    "kind": "coat",
+    "defect": false
+  }
+]

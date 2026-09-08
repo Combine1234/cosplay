@@ -1,36 +1,20 @@
 <!doctype html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#f6f1e8"><title>Closet — ส่งต่ออย่างมีสไตล์</title>
-  <link rel="icon" href="data:,"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="panels.css">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f6f1e8"><title>CLOSET — Cosplay Marketplace</title>
+<link rel="icon" href="data:,"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="panels.css"><link rel="stylesheet" href="cosplay.css"><link rel="stylesheet" href="cosplay-seller.css">
 </head>
-<body>
-  <header class="topbar">
-    <a class="brand" href="#shop" aria-label="Closet หน้าแรก">CLOSET<sup>®</sup></a>
-    <nav aria-label="เมนูหลัก"><a href="#shop">เลือกสินค้า</a><a href="#outfit">ลองจัดชุด</a><button class="navlink" id="assistantBtn">AI ช่วยหา</button></nav>
-    <div class="nav-actions"><button class="icon" id="noticeBtn" aria-label="การแจ้งเตือน">◌<span id="noticeCount"></span></button><button class="chip" id="accountBtn">เข้าสู่ระบบเดโม</button><button class="chip" id="closetBtn">My Closet</button><button class="dark" id="sellBtn">＋ ลงขาย</button><button class="icon" id="cartBtn" aria-label="ตะกร้า">Bag <b id="cartCount">0</b></button></div>
-  </header>
-  <main>
-    <section class="hero"><div><p class="eyebrow">PRE-LOVED, CONSIDERED</p><h1>เห็นสภาพจริง<br><em>ก่อนเลือกทุกลุค</em></h1><p>เลือกเสื้อผ้ามือสองที่มีข้อมูลครบ จัดชุดจากสินค้าที่มีขายจริง และลองภาพรวมบนหุ่นจำลอง</p><a class="dark hero-cta" href="#shop">เริ่มเลือกสินค้า <span>→</span></a></div><div class="hero-art" aria-hidden="true"><span>YOUR STYLE</span><div class="look-card one"></div><div class="look-card two"></div><div class="hero-stamp">ONE ACCOUNT<br>BUY + SELL</div></div></section>
-    <section class="trust"><div><b>◇ สภาพโปร่งใส</b><span>แยกภาพตำหนิและระดับความรุนแรง</span></div><div><b>✦ แมตช์จากสต็อกจริง</b><span>ทุกชิ้นเชื่อมกลับไปยังประกาศ</span></div><div><b>◎ ซื้อเป็นชุด</b><span>ตรวจสต็อกซ้ำก่อนสร้างคำสั่งซื้อ</span></div><div><b>↗ เดโมอย่างตรงไปตรงมา</b><span>ไม่มีการรับเงินจริงหรือรับประกันไซซ์</span></div></section>
-    <section class="workspace" id="shop">
-      <div class="catalog">
-        <div class="section-head"><div><p class="eyebrow">DISCOVER</p><h2>เลือกชิ้นที่ใช่</h2></div><button class="text-btn" id="saveSearchBtn">♡ บันทึกการค้นหา</button></div>
-        <div class="assistant-result hidden" id="assistantResult"></div>
-        <div class="toolbar"><label class="search">⌕ <input id="searchInput" placeholder="ค้นหาแบรนด์ สี หรือไอเทม"></label><select id="typeFilter" aria-label="ประเภท"><option value="">ทุกประเภท</option><option value="top">เสื้อ</option><option value="bottom">กางเกง/กระโปรง</option><option value="outerwear">เสื้อคลุม</option><option value="dress">เดรส</option></select><select id="sizeFilter" aria-label="ไซซ์"><option value="">ทุกไซซ์</option><option>S</option><option>M</option><option>L</option><option>XL</option></select><select id="colorFilter" aria-label="สี"><option value="">ทุกสี</option><option>ขาว</option><option>ดำ</option><option>ครีม</option><option>เบจ</option><option>น้ำตาล</option><option>ฟ้า</option><option>น้ำเงิน</option><option>เขียว</option></select><select id="brandFilter" aria-label="แบรนด์"><option value="">ทุกแบรนด์</option><option>COS</option><option>UNIQLO</option><option>ZARA</option><option>MUJI</option><option>Levi's</option></select><label class="price-filter">ราคาเริ่ม <input id="minPriceFilter" type="number" min="0" step="10" inputmode="numeric"></label><label class="price-filter">ไม่เกิน <input id="maxPriceFilter" type="number" min="0" step="10" inputmode="numeric"></label><select id="conditionFilter" aria-label="สภาพ"><option value="">ทุกสภาพ</option><option value="like_new">เหมือนใหม่</option><option value="good">สภาพดี</option><option value="defect">มีตำหนิ</option></select><select id="sortFilter" aria-label="เรียงลำดับ"><option value="latest">อัปเดตล่าสุด</option><option value="price_asc">ราคาต่ำก่อน</option><option value="price_desc">ราคาสูงก่อน</option></select></div>
-        <div class="product-grid" id="productGrid" aria-live="polite"></div><p class="empty hidden" id="emptyState">ยังไม่มีสินค้าที่ตรงกับตัวกรอง ลองปรับเงื่อนไขอีกนิด</p>
-      </div>
-      <aside class="builder" id="outfit"><div class="builder-head"><div><p class="eyebrow">OUTFIT STUDIO</p><h2>ลองจัดชุด</h2></div><button class="ghost" id="clearOutfit">ล้าง</button></div><p class="builder-intro">เพิ่มสินค้าจากการ์ด แล้วลองเปลี่ยนได้หลายชิ้นพร้อมกัน</p>
-        <div class="mannequin" id="mannequin"><div class="head"></div><div class="neck"></div><div class="torso"></div><div class="legs"></div><div class="garment-layers" id="garmentLayers"></div><span class="demo-watermark">ภาพจำลอง</span></div>
-        <div class="slots" id="outfitSlots"></div>
-        <details class="body-settings"><summary>ปรับสัดส่วนหุ่นโดยประมาณ</summary><div class="body-grid"><label>อก <input id="bodyChest" type="number" min="60" max="160"></label><label>เอว <input id="bodyWaist" type="number" min="50" max="160"></label><label>สะโพก <input id="bodyHip" type="number" min="60" max="180"></label><label>ส่วนสูง <input id="bodyHeight" type="number" min="130" max="210"></label></div></details>
-        <button class="secondary full" id="matchBtn">✦ แมตช์ชุดนี้กับอะไรดี</button><button class="dark full" id="addOutfitCart">เพิ่มทั้งชุดลงตะกร้า</button><small class="disclaimer">พรีวิวนี้ใช้ดูองค์ประกอบของลุคเท่านั้น ขนาดที่พอดีควรพิจารณาจากข้อมูลวัดจริง</small>
-      </aside>
-    </section>
-  </main>
-  <footer><a class="brand" href="#shop">CLOSET<sup>®</sup></a><p>ต้นแบบเก็บข้อมูลในเบราว์เซอร์เครื่องนี้ · ไม่มีการชำระเงินจริง</p><button class="ghost" id="clockBtn">เวลาเดโม +<span id="clockDays">0</span> วัน</button></footer>
-  <dialog id="modal"><div class="dialog-shell"><header><p id="modalTitle"></p><button class="icon" id="modalClose" aria-label="ปิด">×</button></header><div id="modalBody"></div></div></dialog>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script type="module" src="app.js"></script>
+<body class="cosplay-app">
+<a class="skip-link" href="#page">ข้ามไปเนื้อหา</a>
+<header class="topbar">
+<a class="brand" href="#shop" aria-label="Closet หน้าแรก">CLOSET<sup>®</sup><small>COSPLAY MARKETPLACE</small></a>
+<nav aria-label="เมนูหลัก"><a href="#shop">Marketplace</a><a href="#mannequin">My Mannequin</a><a href="#closet/saved">Saved</a></nav>
+<div class="nav-actions"><button class="chip" id="accountBtn">บัญชีเดโม</button><a class="chip" href="#closet/listings" id="closetBtn">My Closet</a><button class="dark" id="sellBtn">＋ ลงขายชุด</button></div>
+</header>
+<main id="page" tabindex="-1"><p class="loading">กำลังเปิดตู้คอสเพลย์…</p></main>
+<footer><a class="brand" href="#shop">CLOSET<sup>®</sup></a><p>Cosplay, considered. <span>ข้อมูลเดโมเก็บในเบราว์เซอร์นี้ · ไม่มีการรับเงินจริง</span></p><a href="#mannequin">สร้างหุ่นของคุณ ↗</a></footer>
+<dialog id="modal" aria-labelledby="modalTitle"><div class="dialog-shell"><header><p id="modalTitle"></p><button class="icon" id="modalClose" aria-label="ปิด">×</button></header><div id="modalBody"></div></div></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script type="module" src="app.js"></script>
 </body></html>

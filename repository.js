@@ -82,3 +82,24 @@ export async function createRepository() {
   await initialize();
   return {read,dispatch};
 }
+import { transitionCosplay } from './cosplay-domain.js';
+import { makeCosplaySeed } from './cosplay-seed.js';
+
+export async function createCosplayRepository() {
+  const key='cosplay-v1',database=await openDatabase();
+  const channel=typeof BroadcastChannel==='function'?new BroadcastChannel(CHANNEL):null;
+  if(channel&&typeof window!=='undefined')channel.onmessage=()=>window.dispatchEvent(new CustomEvent('closet:changed'));
+  const init=database.transaction(STORE,'readwrite'),store=init.objectStore(STORE),done=transactionComplete(init);
+  const existing=await requestResult(store.get(key));
+  if(existing===undefined){const legacy=await requestResult(store.get(KEY));store.put(makeCosplaySeed(Date.now(),legacy),key);}
+  await done;
+  return {
+    async read(){const tx=database.transaction(STORE,'readonly'),done=transactionComplete(tx);const value=await requestResult(tx.objectStore(STORE).get(key));await done;return value;},
+    async dispatch(action,payload={},actor){
+      const tx=database.transaction(STORE,'readwrite'),done=transactionComplete(tx),store=tx.objectStore(STORE);let result;
+      try{const state=await requestResult(store.get(key));const actorId=typeof actor==='object'?actor?.actorId:actor;result=transitionCosplay(state,action,payload,Date.now(),actorId===undefined?payload.actorId:actorId);store.put(state,key);}
+      catch(error){tx.abort();try{await done;}catch{}throw error;}
+      await done;announce(channel);return result;
+    }
+  };
+}
