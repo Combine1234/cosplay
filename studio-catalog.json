@@ -1,0 +1,1367 @@
+{
+  "version": 1,
+  "bodies": {
+    "female": {
+      "url": "studio-assets/models/body-female.glb",
+      "sourceUrl": "https://www.blender.org/download/demo-files/",
+      "license": "CC0 · Blender Human Base Meshes v1.4.1"
+    },
+    "male": {
+      "url": "studio-assets/models/body-male.glb",
+      "sourceUrl": "https://www.blender.org/download/demo-files/",
+      "license": "CC0 · Blender Human Base Meshes v1.4.1"
+    }
+  },
+  "items": [
+    {
+      "id": "studio-academy-top",
+      "title": "Navy gold-button blazer",
+      "character": "Academy Mix Piece",
+      "series": "CLOSET Original Styling",
+      "description": "สินค้าตัวอย่างจากภาพถ่ายจริงสำหรับสาธิตการมิกซ์ชุด 3D: Worn detail photograph; lower hem and full sleeves are not shown. Navy with gold buttons.",
+      "theme": "academy",
+      "category": "top",
+      "attachmentSlot": "top",
+      "sellerId": "u1",
+      "condition": "good",
+      "components": [
+        "Navy gold-button blazer"
+      ],
+      "photos": [
+        {
+          "id": "academy-top-front",
+          "src": "studio-assets/photos/academy-top.jpg",
+          "tag": "front"
+        }
+      ],
+      "coverId": "academy-top-front",
+      "defects": [],
+      "lengthTarget": "waist",
+      "sizeVariants": [
+        {
+          "id": "academy-top-s",
+          "size": "S",
+          "stock": 1,
+          "price": 1290,
+          "measurements": {
+            "shoulder": 38,
+            "chest": 88,
+            "waist": 70,
+            "hip": 92,
+            "length": 58
+          }
+        },
+        {
+          "id": "academy-top-m",
+          "size": "M",
+          "stock": 1,
+          "price": 1410,
+          "measurements": {
+            "shoulder": 40,
+            "chest": 94,
+            "waist": 76,
+            "hip": 98,
+            "length": 58
+          }
+        },
+        {
+          "id": "academy-top-l",
+          "size": "L",
+          "stock": 1,
+          "price": 1530,
+          "measurements": {
+            "shoulder": 42,
+            "chest": 100,
+            "waist": 82,
+            "hip": 104,
+            "length": 58
+          }
+        }
+      ],
+      "model": {
+        "url": "studio-assets/models/top-academy.glb",
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "referenceBody": {
+          "height": 170,
+          "chest": 90,
+          "waist": 72,
+          "hip": 96,
+          "shoulder": 40
+        },
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blazer.JPG",
+        "license": "3D reconstruction authored for this demo from credited photographic reference"
+      },
+      "photoCredit": {
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blazer.JPG",
+        "creator": "Dr. Meierhofer; Commons upload Qz10",
+        "license": "Public domain",
+        "licenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-self",
+        "caveats": "Worn detail photograph; lower hem and full sleeves are not shown. Navy with gold buttons."
+      }
+    },
+    {
+      "id": "studio-academy-bottom",
+      "title": "Beige straight-leg chinos",
+      "character": "Academy Mix Piece",
+      "series": "CLOSET Original Styling",
+      "description": "สินค้าตัวอย่างจากภาพถ่ายจริงสำหรับสาธิตการมิกซ์ชุด 3D: Full garment flat lay, beige, slight pleat.",
+      "theme": "academy",
+      "category": "bottom",
+      "attachmentSlot": "bottom",
+      "sellerId": "u3",
+      "condition": "good",
+      "components": [
+        "Beige straight-leg chinos"
+      ],
+      "photos": [
+        {
+          "id": "academy-bottom-front",
+          "src": "studio-assets/photos/academy-bottom.jpg",
+          "tag": "front"
+        }
+      ],
+      "coverId": "academy-bottom-front",
+      "defects": [],
+      "lengthTarget": "ankle",
+      "sizeVariants": [
+        {
+          "id": "academy-bottom-s",
+          "size": "S",
+          "stock": 1,
+          "price": 990,
+          "measurements": {
+            "shoulder": 38,
+            "chest": 88,
+            "waist": 70,
+            "hip": 92,
+            "length": 101
+          }
+        },
+        {
+          "id": "academy-bottom-m",
+          "size": "M",
+          "stock": 1,
+          "price": 1110,
+          "measurements": {
+            "shoulder": 40,
+            "chest": 94,
+            "waist": 76,
+            "hip": 98,
+            "length": 101
+          }
+        },
+        {
+          "id": "academy-bottom-l",
+          "size": "L",
+          "stock": 1,
+          "price": 1230,
+          "measurements": {
+            "shoulder": 42,
+            "chest": 100,
+            "waist": 82,
+            "hip": 104,
+            "length": 101
+          }
+        }
+      ],
+      "model": {
+        "url": "studio-assets/models/bottom-academy.glb",
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "referenceBody": {
+          "height": 170,
+          "chest": 90,
+          "waist": 72,
+          "hip": 96,
+          "shoulder": 40
+        },
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chino_pants.jpg",
+        "license": "3D reconstruction authored for this demo from credited photographic reference"
+      },
+      "photoCredit": {
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chino_pants.jpg",
+        "creator": "Kuha455405",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "caveats": "Full garment flat lay, beige, slight pleat."
+      }
+    },
+    {
+      "id": "studio-academy-wig",
+      "title": "Pink bob wig with straight fringe",
+      "character": "Academy Mix Piece",
+      "series": "CLOSET Original Styling",
+      "description": "สินค้าตัวอย่างจากภาพถ่ายจริงสำหรับสาธิตการมิกซ์ชุด 3D: Photo shows multiple wigs; selected item is prominent pink bob on right. Chin length, straight fringe. Not an isolated product photo.",
+      "theme": "academy",
+      "category": "wig",
+      "attachmentSlot": "wig",
+      "sellerId": "u2",
+      "condition": "good",
+      "components": [
+        "Pink bob wig with straight fringe"
+      ],
+      "photos": [
+        {
+          "id": "academy-wig-front",
+          "src": "studio-assets/photos/academy-wig.jpg",
+          "tag": "front"
+        }
+      ],
+      "coverId": "academy-wig-front",
+      "defects": [],
+      "lengthTarget": "waist",
+      "sizeVariants": [
+        {
+          "id": "academy-wig-s",
+          "size": "S",
+          "stock": 1,
+          "price": 1190,
+          "measurements": {
+            "shoulder": 38,
+            "chest": 88,
+            "waist": 70,
+            "hip": 92,
+            "length": 42
+          }
+        },
+        {
+          "id": "academy-wig-m",
+          "size": "M",
+          "stock": 1,
+          "price": 1190,
+          "measurements": {
+            "shoulder": 40,
+            "chest": 94,
+            "waist": 76,
+            "hip": 98,
+            "length": 42
+          }
+        },
+        {
+          "id": "academy-wig-l",
+          "size": "L",
+          "stock": 1,
+          "price": 1190,
+          "measurements": {
+            "shoulder": 42,
+            "chest": 100,
+            "waist": 82,
+            "hip": 104,
+            "length": 42
+          }
+        }
+      ],
+      "model": {
+        "url": "studio-assets/models/wig-academy.glb",
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "referenceBody": {
+          "height": 170,
+          "chest": 90,
+          "waist": 72,
+          "hip": 96,
+          "shoulder": 40
+        },
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mannequin_wigs.jpg",
+        "license": "3D reconstruction authored for this demo from credited photographic reference"
+      },
+      "photoCredit": {
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mannequin_wigs.jpg",
+        "creator": "Dslcards",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "caveats": "Photo shows multiple wigs; selected item is prominent pink bob on right. Chin length, straight fringe. Not an isolated product photo."
+      }
+    },
+    {
+      "id": "studio-academy-bowtie",
+      "title": "Navy striped bow tie",
+      "character": "Academy Mix Piece",
+      "series": "CLOSET Original Styling",
+      "description": "สินค้าตัวอย่างจากภาพถ่ายจริงสำหรับสาธิตการมิกซ์ชุด 3D: Worn close-up. Navy with blue, red and yellow diagonal stripes.",
+      "theme": "academy",
+      "category": "accessory",
+      "attachmentSlot": "neck",
+      "sellerId": "u1",
+      "condition": "good",
+      "components": [
+        "Navy striped bow tie"
+      ],
+      "photos": [
+        {
+          "id": "academy-bowtie-front",
+          "src": "studio-assets/photos/academy-bowtie.jpg",
+          "tag": "front"
+        }
+      ],
+      "coverId": "academy-bowtie-front",
+      "defects": [],
+      "lengthTarget": "waist",
+      "sizeVariants": [
+        {
+          "id": "academy-bowtie-s",
+          "size": "S",
+          "stock": 1,
+          "price": 490,
+          "measurements": {
+            "shoulder": 38,
+            "chest": 88,
+            "waist": 70,
+            "hip": 92,
+            "length": 20
+          }
+        },
+        {
+          "id": "academy-bowtie-m",
+          "size": "M",
+          "stock": 1,
+          "price": 490,
+          "measurements": {
+            "shoulder": 40,
+            "chest": 94,
+            "waist": 76,
+            "hip": 98,
+            "length": 20
+          }
+        },
+        {
+          "id": "academy-bowtie-l",
+          "size": "L",
+          "stock": 1,
+          "price": 490,
+          "measurements": {
+            "shoulder": 42,
+            "chest": 100,
+            "waist": 82,
+            "hip": 104,
+            "length": 20
+          }
+        }
+      ],
+      "model": {
+        "url": "studio-assets/models/accessory-academy-neck.glb",
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "referenceBody": {
+          "height": 170,
+          "chest": 90,
+          "waist": 72,
+          "hip": 96,
+          "shoulder": 40
+        },
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Striped_bow_tie.jpg",
+        "license": "3D reconstruction authored for this demo from credited photographic reference"
+      },
+      "photoCredit": {
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Striped_bow_tie.jpg",
+        "creator": "Pete",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+        "caveats": "Worn close-up. Navy with blue, red and yellow diagonal stripes."
+      }
+    },
+    {
+      "id": "studio-academy-glasses",
+      "title": "Round gilt steel spectacles",
+      "character": "Academy Mix Piece",
+      "series": "CLOSET Original Styling",
+      "description": "สินค้าตัวอย่างจากภาพถ่ายจริงสำหรับสาธิตการมิกซ์ชุด 3D: Museum collection object, reference only; not a currently available retail SKU.",
+      "theme": "academy",
+      "category": "accessory",
+      "attachmentSlot": "face",
+      "sellerId": "u2",
+      "condition": "good",
+      "components": [
+        "Round gilt steel spectacles"
+      ],
+      "photos": [
+        {
+          "id": "academy-glasses-front",
+          "src": "studio-assets/photos/academy-glasses.jpg",
+          "tag": "front"
+        }
+      ],
+      "coverId": "academy-glasses-front",
+      "defects": [],
+      "lengthTarget": "waist",
+      "sizeVariants": [
+        {
+          "id": "academy-glasses-s",
+          "size": "S",
+          "stock": 1,
+          "price": 490,
+          "measurements": {
+            "shoulder": 38,
+            "chest": 88,
+            "waist": 70,
+            "hip": 92,
+            "length": 20
+          }
+        },
+        {
+          "id": "academy-glasses-m",
+          "size": "M",
+          "stock": 1,
+          "price": 490,
+          "measurements": {
+            "shoulder": 40,
+            "chest": 94,
+            "waist": 76,
+            "hip": 98,
+            "length": 20
+          }
+        },
+        {
+          "id": "academy-glasses-l",
+          "size": "L",
+          "stock": 1,
+          "price": 490,
+          "measurements": {
+            "shoulder": 42,
+            "chest": 100,
+            "waist": 82,
+            "hip": 104,
+            "length": 20
+          }
+        }
+      ],
+      "model": {
+        "url": "studio-assets/models/accessory-academy-face.glb",
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "referenceBody": {
+          "height": 170,
+          "chest": 90,
+          "waist": 72,
+          "hip": 96,
+          "shoulder": 40
+        },
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spectacles_(AM_1965.78.602-24).jpg",
+        "license": "3D reconstruction authored for this demo from credited photographic reference"
+      },
+      "photoCredit": {
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spectacles_(AM_1965.78.602-24).jpg",
+        "creator": "Auckland Museum",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "caveats": "Museum collection object, reference only; not a currently available retail SKU."
+      }
+    },
+    {
+      "id": "studio-fantasy-top",
+      "title": "Ivory ruffle poet shirt",
+      "character": "Fantasy Adventurer Mix Piece",
+      "series": "CLOSET Original Styling",
+      "description": "สินค้าตัวอย่างจากภาพถ่ายจริงสำหรับสาธิตการมิกซ์ชุด 3D: Actual Seinfeld museum costume photograph; generic poet-shirt inspiration, not licensed merchandise or a stock listing.",
+      "theme": "fantasy",
+      "category": "top",
+      "attachmentSlot": "top",
+      "sellerId": "u3",
+      "condition": "good",
+      "components": [
+        "Ivory ruffle poet shirt"
+      ],
+      "photos": [
+        {
+          "id": "fantasy-top-front",
+          "src": "studio-assets/photos/fantasy-top.jpg",
+          "tag": "front"
+        }
+      ],
+      "coverId": "fantasy-top-front",
+      "defects": [],
+      "lengthTarget": "waist",
+      "sizeVariants": [
+        {
+          "id": "fantasy-top-s",
+          "size": "S",
+          "stock": 1,
+          "price": 1390,
+          "measurements": {
+            "shoulder": 38,
+            "chest": 88,
+            "waist": 70,
+            "hip": 92,
+            "length": 58
+          }
+        },
+        {
+          "id": "fantasy-top-m",
+          "size": "M",
+          "stock": 1,
+          "price": 1510,
+          "measurements": {
+            "shoulder": 40,
+            "chest": 94,
+            "waist": 76,
+            "hip": 98,
+            "length": 58
+          }
+        },
+        {
+          "id": "fantasy-top-l",
+          "size": "L",
+          "stock": 1,
+          "price": 1630,
+          "measurements": {
+            "shoulder": 42,
+            "chest": 100,
+            "waist": 82,
+            "hip": 104,
+            "length": 58
+          }
+        }
+      ],
+      "model": {
+        "url": "studio-assets/models/top-fantasy.glb",
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "referenceBody": {
+          "height": 170,
+          "chest": 90,
+          "waist": 72,
+          "hip": 96,
+          "shoulder": 40
+        },
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puffy_Shirt_2006.jpg",
+        "license": "3D reconstruction authored for this demo from credited photographic reference"
+      },
+      "photoCredit": {
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puffy_Shirt_2006.jpg",
+        "creator": "TiMike; crop by George Ho",
+        "license": "Public domain",
+        "licenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-author",
+        "caveats": "Actual Seinfeld museum costume photograph; generic poet-shirt inspiration, not licensed merchandise or a stock listing."
+      }
+    },
+    {
+      "id": "studio-fantasy-bottom",
+      "title": "Olive fatigue trousers",
+      "character": "Fantasy Adventurer Mix Piece",
+      "series": "CLOSET Original Styling",
+      "description": "สินค้าตัวอย่างจากภาพถ่ายจริงสำหรับสาธิตการมิกซ์ชุด 3D: Historical Hungarian army 65M trousers, reused as adventurer styling reference; low resolution.",
+      "theme": "fantasy",
+      "category": "bottom",
+      "attachmentSlot": "bottom",
+      "sellerId": "u1",
+      "condition": "good",
+      "components": [
+        "Olive fatigue trousers"
+      ],
+      "photos": [
+        {
+          "id": "fantasy-bottom-front",
+          "src": "studio-assets/photos/fantasy-bottom.jpg",
+          "tag": "front"
+        }
+      ],
+      "coverId": "fantasy-bottom-front",
+      "defects": [],
+      "lengthTarget": "ankle",
+      "sizeVariants": [
+        {
+          "id": "fantasy-bottom-s",
+          "size": "S",
+          "stock": 1,
+          "price": 1090,
+          "measurements": {
+            "shoulder": 38,
+            "chest": 88,
+            "waist": 70,
+            "hip": 92,
+            "length": 101
+          }
+        },
+        {
+          "id": "fantasy-bottom-m",
+          "size": "M",
+          "stock": 1,
+          "price": 1210,
+          "measurements": {
+            "shoulder": 40,
+            "chest": 94,
+            "waist": 76,
+            "hip": 98,
+            "length": 101
+          }
+        },
+        {
+          "id": "fantasy-bottom-l",
+          "size": "L",
+          "stock": 1,
+          "price": 1330,
+          "measurements": {
+            "shoulder": 42,
+            "chest": 100,
+            "waist": 82,
+            "hip": 104,
+            "length": 101
+          }
+        }
+      ],
+      "model": {
+        "url": "studio-assets/models/bottom-fantasy.glb",
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "referenceBody": {
+          "height": 170,
+          "chest": 90,
+          "waist": 72,
+          "hip": 96,
+          "shoulder": 40
+        },
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hungarian_army_fatigue_trousers_65M_(gyakorl%C3%B3_nadr%C3%A1g)_04.jpg",
+        "license": "3D reconstruction authored for this demo from credited photographic reference"
+      },
+      "photoCredit": {
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hungarian_army_fatigue_trousers_65M_(gyakorl%C3%B3_nadr%C3%A1g)_04.jpg",
+        "creator": "Szerkesztő:Btibor",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+        "caveats": "Historical Hungarian army 65M trousers, reused as adventurer styling reference; low resolution."
+      }
+    },
+    {
+      "id": "studio-fantasy-wig",
+      "title": "Pale blonde braided wig",
+      "character": "Fantasy Adventurer Mix Piece",
+      "series": "CLOSET Original Styling",
+      "description": "สินค้าตัวอย่างจากภาพถ่ายจริงสำหรับสาธิตการมิกซ์ชุด 3D: Wig on mannequin in workshop; elaborate waterfall braid, long straight ends.",
+      "theme": "fantasy",
+      "category": "wig",
+      "attachmentSlot": "wig",
+      "sellerId": "u3",
+      "condition": "good",
+      "components": [
+        "Pale blonde braided wig"
+      ],
+      "photos": [
+        {
+          "id": "fantasy-wig-front",
+          "src": "studio-assets/photos/fantasy-wig.jpg",
+          "tag": "front"
+        }
+      ],
+      "coverId": "fantasy-wig-front",
+      "defects": [],
+      "lengthTarget": "waist",
+      "sizeVariants": [
+        {
+          "id": "fantasy-wig-s",
+          "size": "S",
+          "stock": 1,
+          "price": 1290,
+          "measurements": {
+            "shoulder": 38,
+            "chest": 88,
+            "waist": 70,
+            "hip": 92,
+            "length": 42
+          }
+        },
+        {
+          "id": "fantasy-wig-m",
+          "size": "M",
+          "stock": 1,
+          "price": 1290,
+          "measurements": {
+            "shoulder": 40,
+            "chest": 94,
+            "waist": 76,
+            "hip": 98,
+            "length": 42
+          }
+        },
+        {
+          "id": "fantasy-wig-l",
+          "size": "L",
+          "stock": 1,
+          "price": 1290,
+          "measurements": {
+            "shoulder": 42,
+            "chest": 100,
+            "waist": 82,
+            "hip": 104,
+            "length": 42
+          }
+        }
+      ],
+      "model": {
+        "url": "studio-assets/models/wig-fantasy.glb",
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "referenceBody": {
+          "height": 170,
+          "chest": 90,
+          "waist": 72,
+          "hip": 96,
+          "shoulder": 40
+        },
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Braided_blonde_wig_on_mannequin_head%2C_2016.jpg",
+        "license": "3D reconstruction authored for this demo from credited photographic reference"
+      },
+      "photoCredit": {
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Braided_blonde_wig_on_mannequin_head%2C_2016.jpg",
+        "creator": "Михаил Прус",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "caveats": "Wig on mannequin in workshop; elaborate waterfall braid, long straight ends."
+      }
+    },
+    {
+      "id": "studio-fantasy-belt",
+      "title": "Brown leather belt with metal buckle",
+      "character": "Fantasy Adventurer Mix Piece",
+      "series": "CLOSET Original Styling",
+      "description": "สินค้าตัวอย่างจากภาพถ่ายจริงสำหรับสาธิตการมิกซ์ชุด 3D: Photo contains two belts; selected item is brown lower belt with broad gunmetal striped rectangle buckle.",
+      "theme": "fantasy",
+      "category": "accessory",
+      "attachmentSlot": "waist",
+      "sellerId": "u2",
+      "condition": "good",
+      "components": [
+        "Brown leather belt with metal buckle"
+      ],
+      "photos": [
+        {
+          "id": "fantasy-belt-front",
+          "src": "studio-assets/photos/fantasy-belt.jpg",
+          "tag": "front"
+        }
+      ],
+      "coverId": "fantasy-belt-front",
+      "defects": [],
+      "lengthTarget": "waist",
+      "sizeVariants": [
+        {
+          "id": "fantasy-belt-s",
+          "size": "S",
+          "stock": 1,
+          "price": 590,
+          "measurements": {
+            "shoulder": 38,
+            "chest": 88,
+            "waist": 70,
+            "hip": 92,
+            "length": 20
+          }
+        },
+        {
+          "id": "fantasy-belt-m",
+          "size": "M",
+          "stock": 1,
+          "price": 590,
+          "measurements": {
+            "shoulder": 40,
+            "chest": 94,
+            "waist": 76,
+            "hip": 98,
+            "length": 20
+          }
+        },
+        {
+          "id": "fantasy-belt-l",
+          "size": "L",
+          "stock": 1,
+          "price": 590,
+          "measurements": {
+            "shoulder": 42,
+            "chest": 100,
+            "waist": 82,
+            "hip": 104,
+            "length": 20
+          }
+        }
+      ],
+      "model": {
+        "url": "studio-assets/models/accessory-fantasy-waist.glb",
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "referenceBody": {
+          "height": 170,
+          "chest": 90,
+          "waist": 72,
+          "hip": 96,
+          "shoulder": 40
+        },
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leather_Belt_for_Men_.jpg",
+        "license": "3D reconstruction authored for this demo from credited photographic reference"
+      },
+      "photoCredit": {
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leather_Belt_for_Men_.jpg",
+        "creator": "Aliartisan",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "caveats": "Photo contains two belts; selected item is brown lower belt with broad gunmetal striped rectangle buckle."
+      }
+    },
+    {
+      "id": "studio-fantasy-pendant",
+      "title": "Purple synthetic amethyst pendant",
+      "character": "Fantasy Adventurer Mix Piece",
+      "series": "CLOSET Original Styling",
+      "description": "สินค้าตัวอย่างจากภาพถ่ายจริงสำหรับสาธิตการมิกซ์ชุด 3D: Real photographed synthetic amethyst: violet square gem in diamond orientation, four gold prongs and gold bail, on black cord; only part of cord shown.",
+      "theme": "fantasy",
+      "category": "accessory",
+      "attachmentSlot": "neck",
+      "sellerId": "u1",
+      "condition": "good",
+      "components": [
+        "Purple synthetic amethyst pendant"
+      ],
+      "photos": [
+        {
+          "id": "fantasy-pendant-front",
+          "src": "studio-assets/photos/fantasy-pendant.jpg",
+          "tag": "front"
+        }
+      ],
+      "coverId": "fantasy-pendant-front",
+      "defects": [],
+      "lengthTarget": "waist",
+      "sizeVariants": [
+        {
+          "id": "fantasy-pendant-s",
+          "size": "S",
+          "stock": 1,
+          "price": 590,
+          "measurements": {
+            "shoulder": 38,
+            "chest": 88,
+            "waist": 70,
+            "hip": 92,
+            "length": 20
+          }
+        },
+        {
+          "id": "fantasy-pendant-m",
+          "size": "M",
+          "stock": 1,
+          "price": 590,
+          "measurements": {
+            "shoulder": 40,
+            "chest": 94,
+            "waist": 76,
+            "hip": 98,
+            "length": 20
+          }
+        },
+        {
+          "id": "fantasy-pendant-l",
+          "size": "L",
+          "stock": 1,
+          "price": 590,
+          "measurements": {
+            "shoulder": 42,
+            "chest": 100,
+            "waist": 82,
+            "hip": 104,
+            "length": 20
+          }
+        }
+      ],
+      "model": {
+        "url": "studio-assets/models/accessory-fantasy-neck.glb",
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "referenceBody": {
+          "height": 170,
+          "chest": 90,
+          "waist": 72,
+          "hip": 96,
+          "shoulder": 40
+        },
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amethyst_pendant.jpg",
+        "license": "3D reconstruction authored for this demo from credited photographic reference"
+      },
+      "photoCredit": {
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amethyst_pendant.jpg",
+        "creator": "Mauro Cateb",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "caveats": "Real photographed synthetic amethyst: violet square gem in diamond orientation, four gold prongs and gold bail, on black cord; only part of cord shown."
+      }
+    },
+    {
+      "id": "studio-gothic-top",
+      "title": "Ivory lace corset with rose",
+      "character": "Gothic Atelier Mix Piece",
+      "series": "CLOSET Original Styling",
+      "description": "สินค้าตัวอย่างจากภาพถ่ายจริงสำหรับสาธิตการมิกซ์ชุด 3D: White/ivory strapless lace basque flat lay with peach rose and visible garter straps. Generic styling reference.",
+      "theme": "gothic",
+      "category": "top",
+      "attachmentSlot": "top",
+      "sellerId": "u2",
+      "condition": "good",
+      "components": [
+        "Ivory lace corset with rose"
+      ],
+      "photos": [
+        {
+          "id": "gothic-top-front",
+          "src": "studio-assets/photos/gothic-top.jpg",
+          "tag": "front"
+        }
+      ],
+      "coverId": "gothic-top-front",
+      "defects": [],
+      "lengthTarget": "waist",
+      "sizeVariants": [
+        {
+          "id": "gothic-top-s",
+          "size": "S",
+          "stock": 1,
+          "price": 1390,
+          "measurements": {
+            "shoulder": 38,
+            "chest": 88,
+            "waist": 70,
+            "hip": 92,
+            "length": 58
+          }
+        },
+        {
+          "id": "gothic-top-m",
+          "size": "M",
+          "stock": 1,
+          "price": 1510,
+          "measurements": {
+            "shoulder": 40,
+            "chest": 94,
+            "waist": 76,
+            "hip": 98,
+            "length": 58
+          }
+        },
+        {
+          "id": "gothic-top-l",
+          "size": "L",
+          "stock": 1,
+          "price": 1630,
+          "measurements": {
+            "shoulder": 42,
+            "chest": 100,
+            "waist": 82,
+            "hip": 104,
+            "length": 58
+          }
+        }
+      ],
+      "model": {
+        "url": "studio-assets/models/top-gothic.glb",
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "referenceBody": {
+          "height": 170,
+          "chest": 90,
+          "waist": 72,
+          "hip": 96,
+          "shoulder": 40
+        },
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:White_basque_02.jpg",
+        "license": "3D reconstruction authored for this demo from credited photographic reference"
+      },
+      "photoCredit": {
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:White_basque_02.jpg",
+        "creator": "Tender Rosebud",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+        "caveats": "White/ivory strapless lace basque flat lay with peach rose and visible garter straps. Generic styling reference."
+      }
+    },
+    {
+      "id": "studio-gothic-bottom",
+      "title": "Black jeans with diagonal zip pocket",
+      "character": "Gothic Atelier Mix Piece",
+      "series": "CLOSET Original Styling",
+      "description": "สินค้าตัวอย่างจากภาพถ่ายจริงสำหรับสาธิตการมิกซ์ชุด 3D: Worn waist detail only; photo does not establish leg silhouette or full garment.",
+      "theme": "gothic",
+      "category": "bottom",
+      "attachmentSlot": "bottom",
+      "sellerId": "u3",
+      "condition": "good",
+      "components": [
+        "Black jeans with diagonal zip pocket"
+      ],
+      "photos": [
+        {
+          "id": "gothic-bottom-front",
+          "src": "studio-assets/photos/gothic-bottom.jpg",
+          "tag": "front"
+        }
+      ],
+      "coverId": "gothic-bottom-front",
+      "defects": [],
+      "lengthTarget": "ankle",
+      "sizeVariants": [
+        {
+          "id": "gothic-bottom-s",
+          "size": "S",
+          "stock": 1,
+          "price": 1090,
+          "measurements": {
+            "shoulder": 38,
+            "chest": 88,
+            "waist": 70,
+            "hip": 92,
+            "length": 101
+          }
+        },
+        {
+          "id": "gothic-bottom-m",
+          "size": "M",
+          "stock": 1,
+          "price": 1210,
+          "measurements": {
+            "shoulder": 40,
+            "chest": 94,
+            "waist": 76,
+            "hip": 98,
+            "length": 101
+          }
+        },
+        {
+          "id": "gothic-bottom-l",
+          "size": "L",
+          "stock": 1,
+          "price": 1330,
+          "measurements": {
+            "shoulder": 42,
+            "chest": 100,
+            "waist": 82,
+            "hip": 104,
+            "length": 101
+          }
+        }
+      ],
+      "model": {
+        "url": "studio-assets/models/bottom-gothic.glb",
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "referenceBody": {
+          "height": 170,
+          "chest": 90,
+          "waist": 72,
+          "hip": 96,
+          "shoulder": 40
+        },
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Black_Jeans_with_Zipper_Pocket_Detailing_(15470033547).jpg",
+        "license": "3D reconstruction authored for this demo from credited photographic reference"
+      },
+      "photoCredit": {
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Black_Jeans_with_Zipper_Pocket_Detailing_(15470033547).jpg",
+        "creator": "Jamie (petitepanoply)",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "caveats": "Worn waist detail only; photo does not establish leg silhouette or full garment."
+      }
+    },
+    {
+      "id": "studio-gothic-wig",
+      "title": "Black and wine curly fringe wig",
+      "character": "Gothic Atelier Mix Piece",
+      "series": "CLOSET Original Styling",
+      "description": "สินค้าตัวอย่างจากภาพถ่ายจริงสำหรับสาธิตการมิกซ์ชุด 3D: Single mannequin, voluminous shoulder-length curls, black upper hair with burgundy tips, curly fringe.",
+      "theme": "gothic",
+      "category": "wig",
+      "attachmentSlot": "wig",
+      "sellerId": "u1",
+      "condition": "good",
+      "components": [
+        "Black and wine curly fringe wig"
+      ],
+      "photos": [
+        {
+          "id": "gothic-wig-front",
+          "src": "studio-assets/photos/gothic-wig.jpg",
+          "tag": "front"
+        }
+      ],
+      "coverId": "gothic-wig-front",
+      "defects": [],
+      "lengthTarget": "waist",
+      "sizeVariants": [
+        {
+          "id": "gothic-wig-s",
+          "size": "S",
+          "stock": 1,
+          "price": 1290,
+          "measurements": {
+            "shoulder": 38,
+            "chest": 88,
+            "waist": 70,
+            "hip": 92,
+            "length": 42
+          }
+        },
+        {
+          "id": "gothic-wig-m",
+          "size": "M",
+          "stock": 1,
+          "price": 1290,
+          "measurements": {
+            "shoulder": 40,
+            "chest": 94,
+            "waist": 76,
+            "hip": 98,
+            "length": 42
+          }
+        },
+        {
+          "id": "gothic-wig-l",
+          "size": "L",
+          "stock": 1,
+          "price": 1290,
+          "measurements": {
+            "shoulder": 42,
+            "chest": 100,
+            "waist": 82,
+            "hip": 104,
+            "length": 42
+          }
+        }
+      ],
+      "model": {
+        "url": "studio-assets/models/wig-gothic.glb",
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "referenceBody": {
+          "height": 170,
+          "chest": 90,
+          "waist": 72,
+          "hip": 96,
+          "shoulder": 40
+        },
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:AFRO_FRINGE_WIG.jpg",
+        "license": "3D reconstruction authored for this demo from credited photographic reference"
+      },
+      "photoCredit": {
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:AFRO_FRINGE_WIG.jpg",
+        "creator": "Wendygyadu",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "caveats": "Single mannequin, voluminous shoulder-length curls, black upper hair with burgundy tips, curly fringe."
+      }
+    },
+    {
+      "id": "studio-gothic-necklace",
+      "title": "Red coral fish charm choker",
+      "character": "Gothic Atelier Mix Piece",
+      "series": "CLOSET Original Styling",
+      "description": "สินค้าตัวอย่างจากภาพถ่ายจริงสำหรับสาธิตการมิกซ์ชุด 3D: Original jewelry design: brown leather twisted with silver, red coral beads and fish charm. Not a black velvet choker.",
+      "theme": "gothic",
+      "category": "accessory",
+      "attachmentSlot": "neck",
+      "sellerId": "u3",
+      "condition": "good",
+      "components": [
+        "Red coral fish charm choker"
+      ],
+      "photos": [
+        {
+          "id": "gothic-necklace-front",
+          "src": "studio-assets/photos/gothic-necklace.jpg",
+          "tag": "front"
+        }
+      ],
+      "coverId": "gothic-necklace-front",
+      "defects": [],
+      "lengthTarget": "waist",
+      "sizeVariants": [
+        {
+          "id": "gothic-necklace-s",
+          "size": "S",
+          "stock": 1,
+          "price": 590,
+          "measurements": {
+            "shoulder": 38,
+            "chest": 88,
+            "waist": 70,
+            "hip": 92,
+            "length": 20
+          }
+        },
+        {
+          "id": "gothic-necklace-m",
+          "size": "M",
+          "stock": 1,
+          "price": 590,
+          "measurements": {
+            "shoulder": 40,
+            "chest": 94,
+            "waist": 76,
+            "hip": 98,
+            "length": 20
+          }
+        },
+        {
+          "id": "gothic-necklace-l",
+          "size": "L",
+          "stock": 1,
+          "price": 590,
+          "measurements": {
+            "shoulder": 42,
+            "chest": 100,
+            "waist": 82,
+            "hip": 104,
+            "length": 20
+          }
+        }
+      ],
+      "model": {
+        "url": "studio-assets/models/accessory-gothic-neck.glb",
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "referenceBody": {
+          "height": 170,
+          "chest": 90,
+          "waist": 72,
+          "hip": 96,
+          "shoulder": 40
+        },
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wire_necklace.jpg",
+        "license": "3D reconstruction authored for this demo from credited photographic reference"
+      },
+      "photoCredit": {
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wire_necklace.jpg",
+        "creator": "Durova",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "caveats": "Original jewelry design: brown leather twisted with silver, red coral beads and fish charm. Not a black velvet choker."
+      }
+    },
+    {
+      "id": "studio-gothic-hairbow",
+      "title": "Gold sequin hair bow",
+      "character": "Gothic Atelier Mix Piece",
+      "series": "CLOSET Original Styling",
+      "description": "สินค้าตัวอย่างจากภาพถ่ายจริงสำหรับสาธิตการมิกซ์ชุด 3D: Worn close-up on red hair; bow is gold, not black.",
+      "theme": "gothic",
+      "category": "accessory",
+      "attachmentSlot": "hair",
+      "sellerId": "u2",
+      "condition": "good",
+      "components": [
+        "Gold sequin hair bow"
+      ],
+      "photos": [
+        {
+          "id": "gothic-hairbow-front",
+          "src": "studio-assets/photos/gothic-hairbow.jpg",
+          "tag": "front"
+        }
+      ],
+      "coverId": "gothic-hairbow-front",
+      "defects": [],
+      "lengthTarget": "waist",
+      "sizeVariants": [
+        {
+          "id": "gothic-hairbow-s",
+          "size": "S",
+          "stock": 1,
+          "price": 590,
+          "measurements": {
+            "shoulder": 38,
+            "chest": 88,
+            "waist": 70,
+            "hip": 92,
+            "length": 20
+          }
+        },
+        {
+          "id": "gothic-hairbow-m",
+          "size": "M",
+          "stock": 1,
+          "price": 590,
+          "measurements": {
+            "shoulder": 40,
+            "chest": 94,
+            "waist": 76,
+            "hip": 98,
+            "length": 20
+          }
+        },
+        {
+          "id": "gothic-hairbow-l",
+          "size": "L",
+          "stock": 1,
+          "price": 590,
+          "measurements": {
+            "shoulder": 42,
+            "chest": 100,
+            "waist": 82,
+            "hip": 104,
+            "length": 20
+          }
+        }
+      ],
+      "model": {
+        "url": "studio-assets/models/accessory-gothic-hair.glb",
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "referenceBody": {
+          "height": 170,
+          "chest": 90,
+          "waist": 72,
+          "hip": 96,
+          "shoulder": 40
+        },
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gold_Sequined_Hair_Bow_on_Red_Hair_(18503058885).jpg",
+        "license": "3D reconstruction authored for this demo from credited photographic reference"
+      },
+      "photoCredit": {
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gold_Sequined_Hair_Bow_on_Red_Hair_(18503058885).jpg",
+        "creator": "Jamie (petitepanoply)",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "caveats": "Worn close-up on red hair; bow is gold, not black."
+      }
+    }
+  ]
+}

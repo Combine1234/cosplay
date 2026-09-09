@@ -84,14 +84,16 @@ export async function createRepository() {
 }
 import { transitionCosplay } from './cosplay-domain.js';
 import { makeCosplaySeed } from './cosplay-seed.js';
+import { mergeStudioCatalog } from './studio-domain.js';
 
-export async function createCosplayRepository() {
+export async function createCosplayRepository(catalog=null) {
   const key='cosplay-v1',database=await openDatabase();
   const channel=typeof BroadcastChannel==='function'?new BroadcastChannel(CHANNEL):null;
   if(channel&&typeof window!=='undefined')channel.onmessage=()=>window.dispatchEvent(new CustomEvent('closet:changed'));
   const init=database.transaction(STORE,'readwrite'),store=init.objectStore(STORE),done=transactionComplete(init);
   const existing=await requestResult(store.get(key));
-  if(existing===undefined){const legacy=await requestResult(store.get(KEY));store.put(makeCosplaySeed(Date.now(),legacy),key);}
+  if(existing===undefined){const legacy=await requestResult(store.get(KEY));store.put(mergeStudioCatalog(makeCosplaySeed(Date.now(),legacy),catalog),key);}
+  else {mergeStudioCatalog(existing,catalog);store.put(existing,key);}
   await done;
   return {
     async read(){const tx=database.transaction(STORE,'readonly'),done=transactionComplete(tx);const value=await requestResult(tx.objectStore(STORE).get(key));await done;return value;},

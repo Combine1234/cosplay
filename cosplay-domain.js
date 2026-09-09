@@ -1,7 +1,8 @@
+import {BODY_LIMITS,profileStudio,validateStudioBody,cleanOutfit} from './studio-domain.js';
 const fail = message => { throw new Error(message); };
 const uid = (prefix,now) => `${prefix}-${now.toString(36)}-${Math.random().toString(36).slice(2,10)}`;
 const text = value => typeof value === 'string' && value.trim().length > 0;
-const source = value => (typeof Blob !== 'undefined' && value instanceof Blob && ['image/png','image/jpeg','image/webp'].includes(value.type) && value.size > 0 && value.size <= 10*1024*1024) || (typeof value === 'string' && /^\.?\/?cosplay-assets\/[a-z0-9-]+\.svg$/.test(value));
+const source = value => (typeof Blob !== 'undefined' && value instanceof Blob && ['image/png','image/jpeg','image/webp'].includes(value.type) && value.size > 0 && value.size <= 10*1024*1024) || (typeof value === 'string' && (/^\.?\/?cosplay-assets\/[a-z0-9-]+\.svg$/.test(value)||/^studio-assets\/(?:[a-zA-Z0-9_-]+\/)*[a-zA-Z0-9_.-]+\.(?:jpg|jpeg|png|webp)$/.test(value)));
 const layerSource = value => (typeof Blob !== 'undefined' && value instanceof Blob && value.type === 'image/png' && value.size > 0 && value.size <= 10*1024*1024) || (typeof value === 'string' && /^\.?\/?cosplay-assets\/[a-z0-9-]+\.svg$/.test(value));
 const unique = rows => rows.every(row=>text(row.id)) && new Set(rows.map(row=>row.id)).size === rows.length;
 export function validateCosplayListing(item) {
@@ -40,6 +41,15 @@ export function transitionCosplay(state,action,payload={},now=Date.now(),actorId
     const id=uid('user',now);state.profiles.push({id,name,email});state.settings.currentUserId=id;state.favorites[id]=[];event(action,{userId:id});return {id};
   }
   const actor=user();
+  if(action==='studio.body.save'){
+    if(!['female','male'].includes(payload.style)||!validateStudioBody(payload.body))fail('สัดส่วนหุ่นไม่ถูกต้อง');
+    const profile=profileStudio(state,actor.id);profile.style=payload.style;profile.bodies[payload.style]=Object.fromEntries(Object.keys(BODY_LIMITS).map(k=>[k,payload.body[k]]));
+    (state.studioProfiles??={})[actor.id]=profile;return {id:actor.id};
+  }
+  if(action==='studio.outfit.save'){
+    const outfit=cleanOutfit(state,payload.outfit),profile=profileStudio(state,actor.id);profile.outfit=outfit;
+    (state.studioProfiles??={})[actor.id]=profile;return {id:actor.id};
+  }
   if(action==='favorite.toggle'){const listing=find(payload.id);if(listing.status==='deleted')fail('ไม่พบสินค้า');const favorites=state.favorites[actor.id]??=[];const index=favorites.indexOf(listing.id);if(index<0)favorites.push(listing.id);else favorites.splice(index,1);return {id:listing.id,favorite:index<0};}
   if(action==='mannequin.save'){
     const body=payload.body,ranges={height:[120,220],chest:[50,180],waist:[40,160],hip:[50,190],shoulder:[25,65]};

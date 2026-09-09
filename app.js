@@ -3,11 +3,13 @@ import {h,money,photoUrl,cover,labels} from './dom.js';
 import {openAccounts} from './panels.js';
 import {PRESETS,validateBody,calculateFit,renderMannequin} from './mannequin.js';
 import {openCosplayListing} from './cosplay-seller.js';
+import {createStudioUI} from './studio-ui.js';
 
 const $=id=>document.getElementById(id);
 const DISCLAIMER='Virtual preview is an estimation and does not guarantee actual fit.';
 const CONDITIONS={like_new:'เหมือนใหม่',good:'สภาพดี',defect:'มีตำหนิ'};
 let repo,state,modalRenderer=null,previousFocus,toastTimer,studio=null;
+let mixStudio=null,studioCatalog=null,studioCatalogError='',studioRouteApplied='';
 let filters={q:'',size:'',condition:'',maxPrice:'',sort:'latest'};
 const me=()=>state?.settings.currentUserId;
 const user=id=>state.profiles.find(p=>p.id===id);
@@ -34,7 +36,10 @@ const dt=n=>new Date(n).toLocaleString('th-TH',{dateStyle:'medium',timeStyle:'sh
 function render(){
   if(!state)return;
   $('accountBtn').textContent=user(me())?.name||'บัญชีเดโม';
-  const [route,id]=location.hash.slice(1).split('/');
+  const [route,id,routeVariant]=location.hash.slice(1).split('/');
+  const inStudio=!route||route==='studio';document.body.classList.toggle('studio-active',inStudio);
+  if(inStudio){if(!mixStudio)mixStudio=createStudioUI({...ctx,get state(){return state},purchase:openPurchase,accounts:()=>openAccounts(ctx)},studioCatalog,studioCatalogError);else mixStudio.update(state);if($('page').firstChild!==mixStudio.element)$('page').replaceChildren(mixStudio.element);const routeKey=id?`${id}/${routeVariant||''}`:'';if(routeKey&&routeKey!==studioRouteApplied){studioRouteApplied=routeKey;task(()=>mixStudio.wearItem(id,routeVariant));}if(!routeKey)studioRouteApplied='';return;}
+  studioRouteApplied='';
   const view=route==='product'?productPage(id):route==='tryon'?tryOnPage(id):route==='mannequin'?mannequinPage():route==='closet'?closetPage(id||'listings'):route==='order'?confirmationPage(id):marketplace();
   $('page').replaceChildren(view);
 }
@@ -75,14 +80,14 @@ function gallery(l){
   choose(chosen);return h('div',{class:'gallery'},viewport,thumbs,caption);
 }
 
-function sizePicker(l,chosen,onChange){return h('div',{class:'size-picker',role:'group','aria-label':'เลือกไซซ์'},...l.sizeVariants.map(v=>button(v.size,()=>onChange(v.id),v.id===chosen?'dark':'secondary',{'aria-pressed':v.id===chosen,title:v.stock?'พร้อมซื้อ':'ขายหมด'})))}
+function sizePicker(l,chosen,onChange){return h('div',{class:'size-picker',role:'group','aria-label':'เลือกไซซ์'},...l.sizeVariants.map(v=>button(v.size,()=>onChange(v.id),v.id===chosen?'dark':'secondary',{'aria-pressed':String(v.id===chosen),title:v.stock?'พร้อมซื้อ':'ขายหมด'})))}
 function dimensions(v){const names={shoulder:'ไหล่',chest:'อก',waist:'เอว',hip:'สะโพก',length:'ยาว'};return h('dl',{class:'measurements'},...Object.entries(names).map(([k,t])=>h('div',{},h('dt',{},t),h('dd',{},v.measurements[k]?`${v.measurements[k]} ซม.`:'ไม่ระบุ'))))}
 
 function productPage(id){
   const l=listing(id);if(!l||l.status==='deleted')return empty('ไม่พบชุดนี้','ประกาศอาจถูกนำออกแล้ว');
   let variant=firstVariant(l);const copy=h('div',{class:'detail-copy'});
   function update(){copy.replaceChildren(h('p',{class:'eyebrow'},l.series),h('h1',{},l.character),h('h2',{},l.title),h('p',{class:'detail-price'},money(variant.price)),note(`${CONDITIONS[l.condition]} · ผู้ขาย ${user(l.sellerId)?.name||'บัญชีเดโม'}`),h('p',{},'เลือกไซซ์เพื่อดูขนาดที่วัดจริง'),sizePicker(l,variant.id,id=>{variant=l.sizeVariants.find(v=>v.id===id);update()}),!variant.stock?note('ไซซ์นี้ขายหมดแล้ว ยังลองภาพเพื่อเปรียบเทียบได้'):null,dimensions(variant),
-    h('div',{class:'product-cta'},button('Try On — ลองบนหุ่นของฉัน',()=>{studio=null;go(`#tryon/${l.id}/${variant.id}`)},'dark'),button('Buy Now',()=>openPurchase(l.id,variant.id),'secondary',{disabled:l.status!=='active'||!variant.stock||l.sellerId===me()})),l.status!=='active'?note('ประกาศนี้พักขายอยู่ จึงยังซื้อไม่ได้'):null,h('p',{class:'disclaimer'},DISCLAIMER),h('hr'),h('h3',{},'รายละเอียดชุด'),note(l.description),h('h3',{},'สิ่งที่รวมในชุด'),h('ul',{},...l.components.map(c=>h('li',{},c))),l.defects.length?h('div',{class:'defect-box'},h('b',{},'รายละเอียดตำหนิ'),...l.defects.map(d=>note(`${labels.severity[d.severity]||d.severity}: ${d.description}`))):null,button(state.favorites[me()]?.includes(l.id)?'♥ บันทึกแล้ว':'♡ บันทึกชุดนี้',()=>requireUser()&&run('favorite.toggle',{id:l.id}),'text-btn'))}
+    h('div',{class:'product-cta'},button('Try On — ลองบนหุ่นของฉัน',()=>{studio=null;go(l.model?`#studio/${l.id}/${variant.id}`:`#tryon/${l.id}/${variant.id}`)},'dark'),button('Buy Now',()=>openPurchase(l.id,variant.id),'secondary',{disabled:l.status!=='active'||!variant.stock||l.sellerId===me()})),l.status!=='active'?note('ประกาศนี้พักขายอยู่ จึงยังซื้อไม่ได้'):null,h('p',{class:'disclaimer'},DISCLAIMER),h('hr'),h('h3',{},'รายละเอียดชุด'),note(l.description),h('h3',{},'สิ่งที่รวมในชุด'),h('ul',{},...l.components.map(c=>h('li',{},c))),l.defects.length?h('div',{class:'defect-box'},h('b',{},'รายละเอียดตำหนิ'),...l.defects.map(d=>note(`${labels.severity[d.severity]||d.severity}: ${d.description}`))):null,button(state.favorites[me()]?.includes(l.id)?'♥ บันทึกแล้ว':'♡ บันทึกชุดนี้',()=>requireUser()&&run('favorite.toggle',{id:l.id}),'text-btn'))}
   update();return h('section',{class:'page-shell'},h('a',{class:'back-link',href:'#shop'},'← Marketplace'),h('div',{class:'detail product-detail'},gallery(l),copy));
 }
 
@@ -143,4 +148,5 @@ $('accountBtn').onclick=()=>openAccounts(ctx);
 $('sellBtn').onclick=()=>requireUser()&&openCosplayListing(ctx);
 window.addEventListener('hashchange',()=>{close();render();window.scrollTo({top:0,behavior:'instant'});$('page').focus({preventScroll:true})});
 window.addEventListener('closet:changed',()=>task(async()=>{if(!repo)return;const prior=me();state=await repo.read();if(prior!==me()){studio=null;close();toast('บัญชีเปลี่ยนแล้ว อัปเดตข้อมูลในหน้านี้')}render()}));
-try{repo=await createCosplayRepository();state=await repo.read();render()}catch(error){$('page').replaceChildren(empty('เปิดข้อมูลไม่สำเร็จ',error.message))}
+try{try{const response=await fetch('./studio-catalog.json');if(!response.ok)throw Error('ยังไม่มีแค็ตตาล็อก 3D');studioCatalog=await response.json();}catch(error){studioCatalogError=error.message;}repo=await createCosplayRepository(studioCatalog);state=await repo.read();render()}catch(error){$('page').replaceChildren(empty('เปิดข้อมูลไม่สำเร็จ',error.message))}
+window.addEventListener('pagehide',()=>{mixStudio?.dispose();mixStudio=null;});
