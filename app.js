@@ -40,7 +40,7 @@ function render(){
   const inStudio=!route||route==='studio';document.body.classList.toggle('studio-active',inStudio);
   if(inStudio){if(!mixStudio)mixStudio=createStudioUI({...ctx,get state(){return state},purchase:openPurchase,accounts:()=>openAccounts(ctx)},studioCatalog,studioCatalogError);else mixStudio.update(state);if($('page').firstChild!==mixStudio.element)$('page').replaceChildren(mixStudio.element);const routeKey=id?`${id}/${routeVariant||''}`:'';if(routeKey&&routeKey!==studioRouteApplied){studioRouteApplied=routeKey;task(()=>mixStudio.wearItem(id,routeVariant));}if(!routeKey)studioRouteApplied='';return;}
   studioRouteApplied='';
-  const view=route==='product'?productPage(id):route==='tryon'?tryOnPage(id):route==='mannequin'?mannequinPage():route==='closet'?closetPage(id||'listings'):route==='order'?confirmationPage(id):marketplace();
+  const view=route==='product'?productPage(id):route==='tryon'?tryOnPage(id):route==='closet'?closetPage(id||'listings'):route==='order'?confirmationPage(id):marketplace();
   $('page').replaceChildren(view);
 }
 
@@ -59,7 +59,7 @@ function marketplace(){
   const select=(key,label,options)=>h('select',{'aria-label':label,onchange:e=>{filters[key]=e.target.value;update()}},...options.map(([v,t])=>h('option',{value:v,selected:filters[key]===v},t)));
   update();const hero=state.listings.find(live)||state.listings.find(l=>l.status!=='deleted');
   return h('div',{},
-    h('section',{class:'hero cosplay-hero'},h('div',{},h('p',{class:'eyebrow'},'A NEW CHARACTER. A NEW CHAPTER.'),h('h1',{},'สวมบทบาทใหม่',h('em',{},'ในแบบของคุณ')),note('ค้นพบชุดคอสเพลย์ที่มีเรื่องราว ลองภาพรวมบนหุ่นของคุณ แล้วส่งต่อให้การผจญภัยครั้งใหม่'),h('a',{class:'dark hero-cta',href:'#mannequin'},'สร้างหุ่นของฉัน ↗'),h('p',{class:'hero-footnote'},'VIRTUAL COSPLAY MANNEQUIN · PERSONAL FIT PREVIEW')),
+    h('section',{class:'hero cosplay-hero'},h('div',{},h('p',{class:'eyebrow'},'A NEW CHARACTER. A NEW CHAPTER.'),h('h1',{},'สวมบทบาทใหม่',h('em',{},'ในแบบของคุณ')),note('ค้นพบชุดคอสเพลย์ที่มีเรื่องราว ลองภาพรวมบนหุ่นของคุณ แล้วส่งต่อให้การผจญภัยครั้งใหม่'),h('a',{class:'dark hero-cta',href:'#studio'},'เปิด 3D Studio ↗'),h('p',{class:'hero-footnote'},'VIRTUAL COSPLAY MANNEQUIN · PERSONAL FIT PREVIEW')),
       hero?h('a',{class:'cosplay-hero-art',href:`#tryon/${hero.id}`},h('img',{src:photoUrl(cover(hero)),alt:hero.title}),h('span',{class:'hero-caption'},'THE COSTUME EDIT',h('small',{},'ลองจินตนาการ ก่อนเลือกชุดจริง'))):h('div',{class:'cosplay-hero-art'},empty('ยังไม่มีชุดใน Marketplace','เริ่มลงขายชุดแรกของคุณ'))),
     h('section',{class:'catalog-shell'},h('div',{class:'section-head'},h('div',{},h('p',{class:'eyebrow'},'THE MARKETPLACE'),h('h2',{},'ชุดใหม่ของเรื่องราวคุณ')),count),
       h('div',{class:'toolbar'},h('label',{class:'search'},'⌕',h('input',{value:filters.q,placeholder:'ค้นหาตัวละคร ชื่อชุด หรือเรื่องราว','aria-label':'ค้นหาชุดคอสเพลย์',oninput:e=>{filters.q=e.target.value;update()}})),
@@ -99,14 +99,6 @@ function bodyEditor(body,onChange){
   return root;
 }
 
-function mannequinPage(){
-  if(!me())return h('section',{class:'page-shell'},heading('MY MANNEQUIN','หุ่นที่เป็นคุณ','เลือกบัญชีเพื่อบันทึกสัดส่วน'),button('เลือกบัญชี',()=>openAccounts(ctx),'dark'));
-  const actor=me(),body=structuredClone(state.mannequins[actor]||PRESETS.Regular),stage=h('div',{class:'mannequin-stage'}),error=h('p',{class:'form-error',role:'alert'});
-  const update=()=>{const errors=validateBody(body);error.textContent=errors.join(' · ');if(!errors.length)stage.replaceChildren(renderMannequin(body))};
-  const editor=bodyEditor(body,update);update();
-  return h('section',{class:'page-shell'},heading('MY MANNEQUIN','สร้างหุ่นในสัดส่วนคุณ','บันทึกครั้งเดียว แล้วนำกลับไปลองกับชุดอื่นได้'),h('div',{class:'mannequin-layout'},stage,h('div',{class:'measurement-panel'},h('h2',{},'สัดส่วนของฉัน'),note('เลือก Preset แล้วปรับค่าที่วัดเอง ภาพตอบสนองทันที'),editor,error,h('div',{class:'row'},button('Reset',()=>go('#mannequin')),button('Save Mannequin',async()=>{if(actor!==me())throw Error('บัญชีเปลี่ยนแล้ว กรุณาเปิดหน้านี้ใหม่');const errors=validateBody(body);if(errors.length){error.textContent=errors.join(' · ');return}await run('mannequin.save',{body});toast('บันทึก My Mannequin แล้ว')},'dark')),h('p',{class:'disclaimer'},DISCLAIMER))));
-}
-
 function tryOnPage(id){
   const l=listing(id);if(!l||l.status==='deleted')return empty('ไม่พบชุดสำหรับลอง','กลับไปเลือกชุดจาก Marketplace');
   const routeVariant=location.hash.split('/')[2];
@@ -114,10 +106,10 @@ function tryOnPage(id){
   let variant=l.sizeVariants.find(v=>v.id===studio.variantId)||firstVariant(l);
   const stage=h('div',{class:'mannequin-stage tryon-stage'}),summary=h('div',{class:'fit-summary','aria-live':'polite'}),picker=h('div'),price=h('b',{class:'tryon-price'}),error=h('p',{class:'form-error',role:'alert'}),buy=button('Buy Now',()=>openPurchase(l.id,variant.id),'dark full');
   function update(){const errors=validateBody(studio.body);error.textContent=errors.join(' · ');if(errors.length){buy.disabled=true;return}stage.replaceChildren(renderMannequin(studio.body,l,variant,{guides:true}));if(!l.costumeLayers.length)stage.append(h('div',{class:'no-overlay'},h('img',{src:photoUrl(cover(l)),alt:l.title}),note('ยังไม่มีภาพโปร่งใส แสดงภาพต้นฉบับคู่หุ่น')));summary.replaceChildren(h('h3',{},'Fit Summary'),...calculateFit(studio.body,variant.measurements,l.lengthTarget).map(r=>h('div',{class:'fit-row'},h('span',{},r.label),h('strong',{'data-fit':r.status},r.status.replace('_',' ')),h('small',{},r.explanation))),note('เกณฑ์เดโมจากขนาดวัด ไม่ได้จำลองเนื้อผ้าหรือความยืด'));price.textContent=money(variant.price);buy.disabled=l.status!=='active'||!variant.stock||l.sellerId===me();picker.replaceChildren(sizePicker(l,variant.id,id=>{studio.variantId=id;variant=l.sizeVariants.find(v=>v.id===id);update()}))}
-  const mannequinSelect=h('select',{'aria-label':'เลือกหุ่น',onchange:e=>{studio.mode=e.target.value;studio.body=structuredClone(e.target.value==='personal'?state.mannequins[me()]:PRESETS.Regular);render()}},h('option',{value:'standard',selected:studio.mode==='standard'},'Standard Mannequin'),state.mannequins[me()]?h('option',{value:'personal',selected:studio.mode==='personal'},'My Mannequin'):null);
-  const edit=h('details',{class:'inline-measurements'},h('summary',{},'แก้ไขสัดส่วนเพื่อเปรียบเทียบ'),bodyEditor(studio.body,update),button('บันทึกเป็น My Mannequin',async()=>{if(!requireUser())return;const errors=validateBody(studio.body);if(errors.length){error.textContent=errors.join(' · ');return}await run('mannequin.save',{body:studio.body});studio.mode='personal';render();toast('บันทึกสัดส่วนแล้ว')},'secondary full'));
+  const mannequinSelect=h('select',{'aria-label':'เลือกหุ่น',onchange:e=>{studio.mode=e.target.value;studio.body=structuredClone(e.target.value==='personal'?state.mannequins[me()]:PRESETS.Regular);render()}},h('option',{value:'standard',selected:studio.mode==='standard'},'Standard Mannequin'),state.mannequins[me()]?h('option',{value:'personal',selected:studio.mode==='personal'},'สัดส่วนที่บันทึกไว้'):null);
+  const edit=h('details',{class:'inline-measurements'},h('summary',{},'แก้ไขสัดส่วนเพื่อเปรียบเทียบ'),bodyEditor(studio.body,update),button('บันทึกสัดส่วนนี้',async()=>{if(!requireUser())return;const errors=validateBody(studio.body);if(errors.length){error.textContent=errors.join(' · ');return}await run('mannequin.save',{body:studio.body});studio.mode='personal';render();toast('บันทึกสัดส่วนแล้ว')},'secondary full'));
   update();
-  return h('section',{class:'page-shell studio-shell'},h('a',{class:'back-link',href:`#product/${l.id}`},'← กลับรายละเอียดชุด'),heading('VIRTUAL COSPLAY MANNEQUIN','ลองมองตัวเองในบทบาทใหม่'),h('div',{class:'tryon-layout'},h('aside',{class:'studio-controls'},h('p',{class:'eyebrow'},'YOUR CHARACTER'),h('h2',{},l.character),note(l.title),price,h('h3',{},'1. เลือกหุ่น'),mannequinSelect,!state.mannequins[me()]?h('a',{class:'text-btn',href:'#mannequin'},'สร้าง My Mannequin →'):null,edit,error,h('h3',{},'2. เลือกไซซ์'),picker,h('h3',{},'3. เปลี่ยนชุด'),h('select',{'aria-label':'เปลี่ยนชุด',onchange:e=>{studio=null;go(`#tryon/${e.target.value}`)}},...state.listings.filter(live).map(x=>h('option',{value:x.id,selected:x.id===l.id},`${x.character} — ${x.title}`)))),stage,h('aside',{class:'studio-results'},summary,buy,h('p',{class:'disclaimer'},DISCLAIMER))));
+  return h('section',{class:'page-shell studio-shell'},h('a',{class:'back-link',href:`#product/${l.id}`},'← กลับรายละเอียดชุด'),heading('VIRTUAL COSPLAY MANNEQUIN','ลองมองตัวเองในบทบาทใหม่'),h('div',{class:'tryon-layout'},h('aside',{class:'studio-controls'},h('p',{class:'eyebrow'},'YOUR CHARACTER'),h('h2',{},l.character),note(l.title),price,h('h3',{},'1. เลือกหุ่น'),mannequinSelect,!state.mannequins[me()]?h('a',{class:'text-btn',href:'#studio'},'ปรับหุ่นใน 3D Studio →'):null,edit,error,h('h3',{},'2. เลือกไซซ์'),picker,h('h3',{},'3. เปลี่ยนชุด'),h('select',{'aria-label':'เปลี่ยนชุด',onchange:e=>{studio=null;go(`#tryon/${e.target.value}`)}},...state.listings.filter(live).map(x=>h('option',{value:x.id,selected:x.id===l.id},`${x.character} — ${x.title}`)))),stage,h('aside',{class:'studio-results'},summary,buy,h('p',{class:'disclaimer'},DISCLAIMER))));
 }
 
 function openPurchase(listingId,variantId){
@@ -130,8 +122,7 @@ function confirmationPage(id){const o=state.orders.find(x=>x.id===id&&x.buyerId=
 
 function closetPage(tab){
   if(!me())return h('section',{class:'page-shell'},heading('MY CLOSET','พื้นที่ของคุณ'),button('เลือกบัญชีเดโม',()=>openAccounts(ctx),'dark'));
-  const tabs={listings:'My Listings',sold:'Sold',purchases:'Purchases',saved:'Saved',mannequin:'My Mannequin',earnings:'Earnings'};
-  if(tab==='mannequin')return mannequinPage();
+  const tabs={listings:'My Listings',sold:'Sold',purchases:'Purchases',saved:'Saved',earnings:'Earnings'};
   const own=state.listings.filter(l=>l.sellerId===me()&&l.status!=='deleted'),sales=state.orders.filter(o=>o.sellerId===me());let content=[];
   if(tab==='purchases')content=state.orders.filter(o=>o.buyerId===me()).map(orderLine);
   else if(tab==='sold')content=sales.map(orderLine);
