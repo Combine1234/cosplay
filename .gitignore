@@ -2,3 +2,5 @@ node_modules/
 .superpowers/
 tools-runtime/
 test-results/
+
+.vercel
